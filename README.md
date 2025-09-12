@@ -1,5 +1,9 @@
 # Wordifyery
 ### Simple terminal game for two players in guessing the word
+* [How To Play](#How-To-Play)
+* [Installation and Build](#Installation-and-Build)
+  * [Install](#Install)
+  * [Build](#Build)
 
 ## How To Play
 
@@ -20,17 +24,21 @@ The "-T {number }" argument allows you to set the maximum number of tips. Hints 
 
 In addition to the "!tip" command, there are also "!q" and "!exit" commands that will take you from the game to the terminal. There is also a "!giveup" command that allows the guesser to give up and causes the setter to win.
 
-## Installation
+## Installation and Build
 > [!NOTE]
+> If you've got problems with installation via curl, you can just download executable file (wordify) located in build/linux-x86_64, build/macos-arm64 or build/windows-x86_64
+
+> [!WARNING]
 > Installation requires curl
 
-> ### Install on macOS
+### Install
+> #### Install on macOS
 ```bash
 curl -O -L https://github.com/0netervezer0/Wordifyery/tree/main/build/macos-arm64/wordify
 chmod u+x wordify
 sudo mv wordify /usr/local/bin/
 ```
-> ### Install on Linux
+> #### Install on Linux
 
 ```bash
 curl -O -L https://github.com/0netervezer0/Wordifyery/tree/main/build/linux-x86_64/wordify
@@ -38,9 +46,19 @@ chmod u+x wordify
 sudo mv wordify /usr/local/bin/
 ```
 
-> ### Install on Windows
+> #### Install on Windows
 
 ```bash
 curl -O -L https://github.com/0netervezer0/Wordifyery/tree/main/build/windows-x86_64/wordify
 ```
 Ready! Now use it with command ```wordify```
+
+### Build
+> [!WARNING]
+> Build requires git, Python 3.7+ with default modelus: sys, os, random and pyinstaller
+
+```bash
+git clone https://github.com/0netervezer0/Wordifyery/
+cd Wordifyery/main
+sh build.sh    # or "pyinstaller --onefile main.py" on Windows
+```
