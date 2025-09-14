@@ -55,7 +55,7 @@ Ready! Now use it with command ```wordify```
 
 ### Build
 > [!WARNING]
-> Build requires git, Python 3.7+ with default modelus: sys, os, random and pyinstaller
+> Build requires git, Python 3.7+ with default modules: sys, os, random and pyinstaller
 
 ```bash
 git clone https://github.com/0netervezer0/Wordifyery/
