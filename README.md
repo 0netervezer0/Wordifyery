@@ -38,5 +38,5 @@ In addition to the "!tip" command, there are also "!q" and "!exit" commands that
 ```bash
 git clone https://github.com/0netervezer0/Wordifyery/
 cd Wordifyery/main
-sh build.sh    # or "pyinstaller --onefile main.py" on Windows
+pyinstaller --onefile main.py
 ```
