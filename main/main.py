@@ -3,6 +3,13 @@ from sys import argv, exit
 from random import randint
 
 
+def has_uppercase( word ) -> bool:
+    """
+    Checks if the word has uppercase;
+    Returns true if it has uppercase
+    """
+    return any( char.isupper() for char in word )
+
 def clear() -> None:
     """
     Clears the shell
@@ -11,14 +18,6 @@ def clear() -> None:
         system( "cls" )
     else:
         system( "clear" )
-
-def has_uppercase( word: str ) -> bool:
-    """
-    Checks if the word has uppercase;
-    Returns true if it has uppercase
-    """
-    return any( char.isupper() for char in word )
-
 
 def arg_analysis() -> None:
     """
@@ -41,7 +40,7 @@ def arg_analysis() -> None:
         exit()
 
     # Process arguments
-    i: int = 1
+    i = 1
     while i < argc:
         if argv[i] == "-L":
             if i + 1 >= argc:
@@ -94,7 +93,7 @@ def main() -> int:
         arg_analysis()
     clear()
     while True:
-        set_word: str = input( "\x1b[34mSetter#\x1b[0m Set the word: " )
+        set_word = input( "\x1b[34mSetter#\x1b[0m Set the word: " )
         if set_word == "!q" or set_word == "!exit":
             clear()
             return 1
@@ -109,19 +108,19 @@ def main() -> int:
                 print( "\x1b[31mERROR:\x1b[0m All characters should be lowercase." )
                 return 1
             else:
-                frame: list = [ f"{ "? "*len( set_word ) }",
+                frame = [ f"{ "? "*len( set_word ) }",
                                 f"{ "_ "*len( set_word ) }" ]
                 for line in range( linesCnt ):
                     frame.append( f"{ "* "*len( set_word ) }" )
 
-                cnt: int = -1
+                cnt = -1
                 while cnt < linesCnt-1:
                     clear()
                     for s in frame:
                         print( s )
 
-                    word: str = input( '\n\x1b[34mGuesser#\x1b[0m Enter a word: ' )
-                    used_tips: int = 0
+                    word = input( '\n\x1b[34mGuesser#\x1b[0m Enter a word: ' )
+                    used_tips = 0
 
                     if word == "!q" or word == "!exit":
                         clear()
@@ -132,7 +131,7 @@ def main() -> int:
 
                     elif word == "!tip":
                         if tipsCnt > 0:
-                            hidden: list = [i for i in range( 0, len( set_word )) if frame[0][i * 2] == "?"]
+                            hidden = [i for i in range( 0, len( set_word )) if frame[0][i * 2] == "?"]
                             if len( hidden ) > 0:
                                 if ( len( set_word ) - used_tips ) >= 2:
                                     tipsCnt -= 1
@@ -147,8 +146,8 @@ def main() -> int:
 
                     else:
                         cnt += 1
-                        obj: str = ""
-                        iteration: int = 0
+                        obj = ""
+                        iteration = 0
                         for c in word:
                             if c == set_word[iteration]:
                                 obj += f"\x1b[32m{ c }\x1b[0m "
@@ -160,7 +159,7 @@ def main() -> int:
 
                         if word == set_word:
                             clear()
-                            frame0: str = ""
+                            frame0 = ""
                             for c in set_word:
                                 frame0 += f"{ c } "
                             frame[0] = frame0
@@ -174,7 +173,7 @@ def main() -> int:
 
                 if word != set_word:
                     clear()
-                    frame0: str = ""
+                    frame0 = ""
                     for c in set_word:
                         frame0 += f"{ c } "
                     frame[0] = frame0
@@ -184,10 +183,10 @@ def main() -> int:
 
 
 if __name__ == "__main__":
-    argc:     int = len( argv )  # Count of arguments
+    argc = len( argv )  # Count of arguments
 
     # Global vars
-    linesCnt: int = 5
-    tipsCnt:  int = 0
+    linesCnt = 5
+    tipsCnt = 0
 
     main()
